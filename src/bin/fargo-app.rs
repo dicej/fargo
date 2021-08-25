@@ -2,15 +2,18 @@
 
 use {
     anyhow::{anyhow, Error, Result},
+    fluvio_wasm_timer::Delay,
     futures::TryFutureExt,
     reqwest::Client,
-    std::{ops::Deref, panic},
+    std::{ops::Deref, panic, time::Duration},
     sycamore::prelude::{template, Signal},
     wasm_bindgen::JsCast,
     web_sys::{Event, KeyboardEvent},
 };
 
 const URL: &str = "https://raw.githubusercontent.com/dicej/dicej/master/fargo.bin";
+
+const TIMEOUT: Duration = Duration::from_secs(5 * 60);
 
 fn main() -> Result<()> {
     panic::set_hook(Box::new(console_error_panic_hook::hook));
@@ -51,7 +54,12 @@ fn main() -> Result<()> {
                                     password.get_untracked().deref(),
                                 )?);
 
+                                password.set(String::new());
                                 error.set(String::new());
+
+                                Delay::new(TIMEOUT).await?;
+
+                                plaintext.set(String::new());
 
                                 Ok::<_, Error>(())
                             }
