@@ -1,0 +1,21 @@
+[package]
+name = "fargo"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+futures = "0.3"
+pbkdf2 = "0.8"
+aes-gcm-siv = "0.10"
+hmac = "0.11"
+sha2 = "0.9"
+anyhow = "1"
+log = "0.4"
+wasm-bindgen-futures = "0.4"
+wasm-bindgen-console-logger = "0.1"
+reqwest = "0.11"
+sycamore = { git = "https://github.com/sycamore-rs/sycamore" }
+wasm-bindgen = "0.2"
+console_error_panic_hook = "0.1"
+web-sys = { version = "0.3", features = ["KeyboardEvent"] }
+getrandom = { version = "0.2", features = ["js"] }
