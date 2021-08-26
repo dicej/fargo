@@ -64,8 +64,12 @@ fn main() -> Result<()> {
 
             rand::thread_rng().fill(&mut nonce);
 
+            let mut salt = [0u8; fargo::SALT_SIZE];
+
+            rand::thread_rng().fill(&mut salt);
+
             write(
-                &fargo::encrypt(nonce, str::from_utf8(&read(&input_file)?)?, &password)?,
+                &fargo::encrypt(nonce, str::from_utf8(&read(&input_file)?)?, salt, &password)?,
                 &output_file,
             )?;
         }
