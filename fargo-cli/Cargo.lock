@@ -148,21 +148,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "chrono"
-version = "0.4.19"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "670ad68c9088c2a963aaa298cb369688cf3f9465ce5e2d4ca10e6e0098a1ce73"
-dependencies = [
- "js-sys",
- "libc",
- "num-integer",
- "num-traits",
- "time",
- "wasm-bindgen",
- "winapi",
-]
-
-[[package]]
 name = "cipher"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -754,25 +739,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "num-integer"
-version = "0.1.44"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2cc698a63b549a70bc047073d2949cce27cd1c7b0a4a862d08a8031bc2801db"
-dependencies = [
- "autocfg",
- "num-traits",
-]
-
-[[package]]
-name = "num-traits"
-version = "0.2.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9a64b1ec5cda2586e284722486d802acf1f7dbdc623e2bfc57e65ca1cd099290"
-dependencies = [
- "autocfg",
-]
-
-[[package]]
 name = "once_cell"
 version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1244,11 +1210,11 @@ checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
 
 [[package]]
 name = "sycamore"
-version = "0.5.2"
-source = "git+https://github.com/sycamore-rs/sycamore#47828443081cd412532b87cf85c7ee21ea709839"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ff2302d0f88095fb3eade3b3829e0c78a6febbf734739c49a2bd602d97cc02da"
 dependencies = [
  "ahash",
- "chrono",
  "indexmap",
  "js-sys",
  "smallvec",
@@ -1260,9 +1226,11 @@ dependencies = [
 
 [[package]]
 name = "sycamore-macro"
-version = "0.5.2"
-source = "git+https://github.com/sycamore-rs/sycamore#47828443081cd412532b87cf85c7ee21ea709839"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "04513cacb9138a716f7597905c6ba13446c17168dbe23eaa8fd42f3672a9a6db"
 dependencies = [
+ "once_cell",
  "proc-macro2",
  "quote",
  "syn",
@@ -1270,8 +1238,9 @@ dependencies = [
 
 [[package]]
 name = "sycamore-reactive"
-version = "0.5.2"
-source = "git+https://github.com/sycamore-rs/sycamore#47828443081cd412532b87cf85c7ee21ea709839"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25a1ea8d92db2040926a089b713b6cd44170a9717a4e956a7a2f8a6fcc258062"
 dependencies = [
  "ahash",
  "indexmap",
@@ -1320,17 +1289,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d326610f408c7a4eb6f51c37c330e496b08506c9457c9d34287ecc38809fb060"
 dependencies = [
  "unicode-width",
-]
-
-[[package]]
-name = "time"
-version = "0.1.44"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6db9e6914ab8b1ae1c260a4ae7a49b6c5611b40328a735b21862567685e73255"
-dependencies = [
- "libc",
- "wasi",
- "winapi",
 ]
 
 [[package]]

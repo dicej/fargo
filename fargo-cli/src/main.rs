@@ -1,7 +1,7 @@
 #![deny(warnings)]
 
 use {
-    anyhow::Result,
+    anyhow::{Context, Result},
     rand::Rng,
     std::{
         fs::File,
@@ -60,6 +60,15 @@ fn main() -> Result<()> {
             input_file,
             output_file,
         } => {
+            if let Ok(existing) = read(&output_file) {
+                fargo::decrypt(&existing, &password).with_context(|| {
+                    format!(
+                        "password mismatch for existing file: {}",
+                        output_file.to_string_lossy()
+                    )
+                })?;
+            }
+
             let mut nonce = [0u8; fargo::NONCE_SIZE];
 
             rand::thread_rng().fill(&mut nonce);

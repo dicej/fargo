@@ -6,7 +6,7 @@ use {
     futures::TryFutureExt,
     reqwest::Client,
     std::{ops::Deref, panic, time::Duration},
-    sycamore::prelude::{template, Signal},
+    sycamore::prelude::{view, Signal},
     wasm_bindgen::JsCast,
     web_sys::{Event, KeyboardEvent},
 };
@@ -85,7 +85,7 @@ fn main() -> Result<()> {
     };
 
     sycamore::render(move || {
-        template! {
+        view! {
             div(style="color: #f54")
             {
                 (error.get())
